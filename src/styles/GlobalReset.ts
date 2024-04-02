@@ -89,6 +89,14 @@ export const GlobalReset = css`
     border: 0;
     font-size: 100%;
     font: inherit;
+    font-family:
+      'GamtanRoad',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Open Sans',
+      'Helvetica Neue',
+      sans-serif;
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */

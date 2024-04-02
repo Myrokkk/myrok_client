@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'GamtanRoad';
+  font-display: swap;
+  src:
+    local('GamtanRoad Tantan'),
+    url('assets/fonts/GamtanRoad-Tantan.woff') format('woff');
+}
