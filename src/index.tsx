@@ -17,6 +17,14 @@ if (process.env.WORKER === 'on') {
 
 const queryClient = new QueryClient();
 
+const router = createBrowserRouter([
+  {
+    path: ROUTES.ROOT,
+    element: <App />,
+    children: [{ path: '', element: <LandingPage /> }],
+  },
+]);
+
 const root = createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
