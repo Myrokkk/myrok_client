@@ -7,8 +7,13 @@ import App from '~/App';
 import { Theme } from '~/styles/Theme';
 import { serviceWorker } from '~/server/browser';
 import { ToastProvider } from '~/components/common/Toast/ToastContext';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { ROUTES } from '~/constants/routes';
+import LandingPage from '~/pages/Landing/LandingPage';
 
-serviceWorker.start({ onUnhandledRequest: 'bypass' });
+if (process.env.WORKER === 'on') {
+  serviceWorker.start({ onUnhandledRequest: 'bypass' });
+}
 
 const queryClient = new QueryClient();
 
@@ -20,7 +25,7 @@ root.render(
       <ThemeProvider theme={Theme}>
         <Global styles={GlobalReset} />
         <ToastProvider>
-          <App />
+          <RouterProvider router={router} />
         </ToastProvider>
       </ThemeProvider>
     </QueryClientProvider>
