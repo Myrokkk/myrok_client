@@ -3,28 +3,20 @@ import { CloseBoldIcon } from '~/assets/svg';
 import Button from '~/components/common/Button/Button';
 import Modal from '~/components/common/Modal/Modal';
 import Text from '~/components/common/Text/Text';
-import {
-  googleImg,
-  googleLoginButtonContainer,
-  logInButtonWrapper,
-  logInModalButton,
-  logInModalHeader,
-  logInModalLayoutStyling,
-  logInModalTitle,
-} from '~/components/landing/LogInModal/LogInModal.styles';
+import * as S from '~/components/landing/LogInModal/LogInModal.styles';
 import { Theme } from '~/styles/Theme';
 
 const LogInModal = () => {
   return (
     <Modal>
-      <Modal.Button act="open" variant="primary" css={logInModalButton}>
+      <Modal.Button act="open" variant="primary" css={S.logInModalButton}>
         마이록 시작하기
       </Modal.Button>
       <Modal.Backdrop />
-      <Modal.Layout isBackdropClosable={false} css={logInModalLayoutStyling}>
-        <div css={logInModalHeader}>
+      <Modal.Layout isBackdropClosable={false} css={S.logInModalLayoutStyling}>
+        <div css={S.logInModalHeader}>
           <div css={{ width: '32px' }} />
-          <div css={logInModalTitle}>
+          <div css={S.logInModalTitle}>
             <Text
               size="xxl"
               weight="bold"
@@ -40,9 +32,9 @@ const LogInModal = () => {
             <CloseBoldIcon />
           </Modal.Button>
         </div>
-        <div css={logInButtonWrapper}>
-          <Button css={googleLoginButtonContainer}>
-            <img css={googleImg} src={googleLogo} alt="구글로고" />
+        <div css={S.logInButtonWrapper}>
+          <Button css={S.googleLoginButtonContainer}>
+            <img css={S.googleImg} src={googleLogo} alt="구글로고" />
             Google 계정으로 로그인하기
           </Button>
         </div>

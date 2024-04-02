@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import Button from '~/components/common/Button/Button';
 import Title from '~/components/common/Title/Title';
 import LogInModal from '~/components/landing/LogInModal/LogInModal';
 
