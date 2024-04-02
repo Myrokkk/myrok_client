@@ -83,6 +83,7 @@ export const GlobalReset = css`
   time,
   mark,
   audio,
+  button,
   video {
     margin: 0;
     padding: 0;
