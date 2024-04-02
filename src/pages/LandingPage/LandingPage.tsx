@@ -2,6 +2,7 @@
 import { css } from '@emotion/react';
 import Button from '~/components/common/Button/Button';
 import Title from '~/components/common/Title/Title';
+import LogInModal from '~/components/landing/LogInModal/LogInModal';
 
 const landingPageContainer = css`
   display: flex;
@@ -23,21 +24,12 @@ const titleAndLogInButtonContainer = css`
   gap: 10px;
 `;
 
-const logInButton = css`
-  width: 250px;
-  height: 70px;
-
-  font-size: 24px;
-`;
-
 const LandingPage = () => {
   return (
     <div css={landingPageContainer}>
       <div css={titleAndLogInButtonContainer}>
         <Title />
-        <Button variant="primary" size="lg" css={logInButton}>
-          마이록 시작하기
-        </Button>
+        <LogInModal />
       </div>
     </div>
   );

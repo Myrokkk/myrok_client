@@ -9,7 +9,7 @@ import { serviceWorker } from '~/server/browser';
 import { ToastProvider } from '~/components/common/Toast/ToastContext';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ROUTES } from '~/constants/routes';
-import LandingPage from '~/pages/Landing/LandingPage';
+import LandingPage from '~/pages/LandingPage/LandingPage';
 
 if (process.env.WORKER === 'on') {
   serviceWorker.start({ onUnhandledRequest: 'bypass' });
