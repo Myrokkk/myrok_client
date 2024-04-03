@@ -1,3 +1,6 @@
 export const ROUTES = {
-  ROOT: '',
+  ROOT: '/',
+  START: '/start',
+  JOIN: '/join',
+  CREATE: '/create',
 } as const;

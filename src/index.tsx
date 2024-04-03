@@ -10,6 +10,9 @@ import { ToastProvider } from '~/components/common/Toast/ToastContext';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ROUTES } from '~/constants/routes';
 import LandingPage from '~/pages/LandingPage/LandingPage';
+import StartPage from '~/pages/StartPage/StartPage';
+import CreatePage from '~/pages/CreatePage/CreatePage';
+import JoinPage from '~/pages/JoinPage/JoinPage';
 
 if (process.env.WORKER === 'on') {
   serviceWorker.start({ onUnhandledRequest: 'bypass' });
@@ -21,7 +24,12 @@ const router = createBrowserRouter([
   {
     path: ROUTES.ROOT,
     element: <App />,
-    children: [{ path: '', element: <LandingPage /> }],
+    children: [
+      { path: '', element: <LandingPage /> },
+      { path: ROUTES.START, element: <StartPage /> },
+      { path: ROUTES.CREATE, element: <CreatePage /> },
+      { path: ROUTES.JOIN, element: <JoinPage /> },
+    ],
   },
 ]);
 
