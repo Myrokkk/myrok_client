@@ -5,10 +5,10 @@ import {
   type MouseEventHandler,
   useState,
 } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 const INVITE_CODE_LENGTH = 8 as const;
 
-export const useTeamJoin = (inputRef: RefObject<HTMLInputElement>) => {
+export const useJoinPage = (inputRef: RefObject<HTMLInputElement>) => {
   const [inviteCode, setInviteCode] = useState('');
   const [isClicked, setIsClicked] = useState(false);
   const [isRequired, setIsRequired] = useState(true);
@@ -33,7 +33,9 @@ export const useTeamJoin = (inputRef: RefObject<HTMLInputElement>) => {
     setInviteCode(() => code.slice(0, INVITE_CODE_LENGTH));
   };
 
-  const handleTeamNameSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+  const handleProjectInviteCodeSubmit: FormEventHandler<HTMLFormElement> = (
+    e,
+  ) => {
     e.preventDefault();
 
     if (inviteCode.length !== INVITE_CODE_LENGTH) {
@@ -57,7 +59,7 @@ export const useTeamJoin = (inputRef: RefObject<HTMLInputElement>) => {
 
     handlers: {
       handleInviteCodeChange,
-      handleTeamNameSubmit,
+      handleProjectInviteCodeSubmit,
       handleCreatePageClicked,
     },
   };

@@ -7,7 +7,7 @@ import Button from '~/components/common/Button/Button';
 import { useRef, useEffect } from 'react';
 import { ROUTES } from '~/constants/routes';
 import { useNavigate } from 'react-router-dom';
-import { useTeamJoin } from '~/pages/JoinPage/useTeamJoin';
+import { useJoinPage } from '~/pages/JoinPage/useJoinPage';
 import Title from '~/components/common/Title/Title';
 
 const JoinPage = () => {
@@ -23,10 +23,10 @@ const JoinPage = () => {
 
     handlers: {
       handleInviteCodeChange,
-      handleTeamNameSubmit,
+      handleProjectInviteCodeSubmit,
       handleCreatePageClicked,
     },
-  } = useTeamJoin(inputRef);
+  } = useJoinPage(inputRef);
 
   useEffect(() => {
     if (!isClicked || ref.current === null) {
@@ -45,7 +45,7 @@ const JoinPage = () => {
           <Text weight="semiBold" css={S.titleText}>
             프로젝트 참가하기
           </Text>
-          <form css={S.inviteCodeForm} onSubmit={handleTeamNameSubmit}>
+          <form css={S.inviteCodeForm} onSubmit={handleProjectInviteCodeSubmit}>
             <div css={S.bodyContainer}>
               <div css={S.inputContainer}>
                 <div css={S.inputWrapper}>
