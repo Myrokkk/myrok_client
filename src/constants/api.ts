@@ -54,4 +54,4 @@ export const NETWORK = {
   TIMEOUT: 10000,
 } as const;
 
-export const AXIOS_BASE_URL = '/' as const;
+export const AXIOS_BASE_URL = '' as const;

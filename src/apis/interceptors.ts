@@ -42,8 +42,7 @@ export const handleTokenError = async (
     status === HTTP_STATUS_CODE.BAD_REQUEST &&
     data.code === ERROR_CODE.EXPIRED_ACCESS_TOKEN
   ) {
-    const { data } = await postTokenReissue();
-    const { accessToken } = data;
+    const { accessToken } = await postTokenReissue();
     originalRequest.headers.Authorization = `Bearer ${accessToken}`;
     localStorage.setItem(LOCAL_STORAGE.ACCESS_TOKEN, accessToken);
 
