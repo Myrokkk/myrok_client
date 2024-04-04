@@ -4,7 +4,7 @@ import {
   checkAndSetToken,
   handleAPIError,
   handleTokenError,
-} from '~/apis/axiosInterceptors';
+} from '~/apis/interceptors';
 import { AXIOS_BASE_URL, NETWORK } from '~/constants/api';
 
 export const axiosInstance = axios.create({

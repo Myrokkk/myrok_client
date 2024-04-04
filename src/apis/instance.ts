@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { handleAPIError } from '~/apis/axiosInterceptors';
+import { handleAPIError } from '~/apis/interceptors';
 import { AXIOS_BASE_URL } from '~/constants/api';
 
 export const instance = axios.create({
