@@ -7,7 +7,7 @@ const DashBoardPage = () => {
       <div>아이디: {projectId}</div>
       <div>프로젝트 이름: {projectName}</div>
       <div>시작날짜: {startDate}</div>
-      <div>끝나는 날짜"{endDate}</div>
+      <div>끝나는 날짜:{endDate}</div>
     </>
   );
 };
