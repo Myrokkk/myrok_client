@@ -39,6 +39,11 @@ export const HTTP_ERROR_MESSAGE = {
     BODY: '확인 후 다시 시도해주세요.',
     BUTTON: '홈으로 가기',
   },
+  [HTTP_STATUS_CODE.NOT_ACCEPTABLE]: {
+    HEADING: '잘못된 접근입니다.',
+    BODY: '접근 불가능한 페이지 입니다.',
+    BUTTON: '홈으로 가기',
+  },
 } as const;
 
 export const ERROR_MESSAGE =
