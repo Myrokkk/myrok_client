@@ -7,7 +7,7 @@ export const userHandlers = () => {
   ];
 };
 
-const fakeProjectInfo = {
+export const fakeProjectInfo = {
   projectId: 1,
   projectName: '우리의 프로젝트',
   startDate: '1000-01-01',
@@ -35,5 +35,9 @@ const getUserProjectInfo: Parameters<typeof rest.get>[1] = async (
   const randomNumber = (Math.floor(Math.random() * 10) % 3) % 2;
 
   const projectInfo = [{}, fakeProjectInfo];
-  return res(ctx.status(200), ctx.json(projectInfo[randomNumber]));
+
+  if (fakeProjectInfo.projectId === 1)
+    return res(ctx.status(200), ctx.json(projectInfo[randomNumber]));
+
+  return res(ctx.status(200), ctx.json(fakeProjectInfo));
 };
