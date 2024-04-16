@@ -5,6 +5,7 @@ import {
   type MouseEventHandler,
   useState,
 } from 'react';
+import { useToast } from '~/components/common/Toast/useToast';
 
 const INVITE_CODE_LENGTH = 8 as const;
 
@@ -13,6 +14,7 @@ export const useJoinPage = (inputRef: RefObject<HTMLInputElement>) => {
   const [isClicked, setIsClicked] = useState(false);
   const [isRequired, setIsRequired] = useState(true);
   const [warningText, setWarningText] = useState('');
+  const { showToast } = useToast();
 
   const handleInviteCodeChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const { value: rawCode } = e.target;
@@ -39,7 +41,7 @@ export const useJoinPage = (inputRef: RefObject<HTMLInputElement>) => {
     e.preventDefault();
 
     if (inviteCode.length !== INVITE_CODE_LENGTH) {
-      alert('8자리 초대코드를 입력해주세요.');
+      showToast('error', '8자리 초대코드를 입력해주세요.');
       inputRef.current?.focus();
       return;
     }
