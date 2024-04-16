@@ -7,6 +7,7 @@ import Header from '~/components/common/Header/Header';
 const meta = {
   title: 'common/Header',
   component: Header,
+  tags: ['autodocs'],
 } satisfies Meta<typeof Header>;
 
 export default meta;
