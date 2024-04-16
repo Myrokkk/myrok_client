@@ -24,7 +24,18 @@ if (process.env.WORKER === 'on') {
   serviceWorker.start({ onUnhandledRequest: 'bypass' });
 }
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      throwOnError: true,
+    },
+    mutations: {
+      retry: false,
+      throwOnError: true,
+    },
+  },
+});
 
 const router = createBrowserRouter([
   {

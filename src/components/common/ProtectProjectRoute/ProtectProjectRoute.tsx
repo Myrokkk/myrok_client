@@ -13,9 +13,7 @@ const ProtectProjectRoute = () => {
       <Error
         statusCode={HTTP_STATUS_CODE.NOT_ACCEPTABLE}
         resetError={() => {
-          localStorage.removeItem(LOCAL_STORAGE.ACCESS_TOKEN);
-          localStorage.removeItem(LOCAL_STORAGE.REFRESH_TOKEN);
-          navigate(ROUTES.ROOT);
+          navigate(ROUTES.DASH_BOARD);
         }}
       />
     );
