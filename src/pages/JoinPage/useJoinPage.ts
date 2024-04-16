@@ -5,7 +5,10 @@ import {
   type MouseEventHandler,
   useState,
 } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useToast } from '~/components/common/Toast/useToast';
+import { ROUTES } from '~/constants/routes';
+import { usePostJoinProject } from '~/hooks/@query/usePostJoinProject';
 
 const INVITE_CODE_LENGTH = 8 as const;
 
@@ -15,6 +18,8 @@ export const useJoinPage = (inputRef: RefObject<HTMLInputElement>) => {
   const [isRequired, setIsRequired] = useState(true);
   const [warningText, setWarningText] = useState('');
   const { showToast } = useToast();
+  const { mutatePostJoinProject } = usePostJoinProject();
+  const navigate = useNavigate();
 
   const handleInviteCodeChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const { value: rawCode } = e.target;
@@ -45,6 +50,24 @@ export const useJoinPage = (inputRef: RefObject<HTMLInputElement>) => {
       inputRef.current?.focus();
       return;
     }
+
+    mutatePostJoinProject(
+      {
+        inviteCode: inviteCode,
+      },
+      {
+        onSuccess: () => {
+          showToast('success', '프로젝트에 참여했어요!');
+          navigate(ROUTES.DASH_BOARD);
+        },
+        onError: () => {
+          setIsRequired(() => true);
+          setIsClicked(() => false);
+          setWarningText(() => '');
+          setInviteCode(() => '');
+        },
+      },
+    );
   };
 
   const handleCreatePageClicked: MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -52,7 +75,10 @@ export const useJoinPage = (inputRef: RefObject<HTMLInputElement>) => {
 
     setIsRequired(() => false);
     setIsClicked(() => true);
+    setWarningText(() => '');
+    setInviteCode(() => '');
   };
+
   return {
     inviteCode,
     isClicked,
