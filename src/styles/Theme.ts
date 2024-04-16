@@ -6,6 +6,7 @@ const color = {
   black: '#2b2b2b',
   gray800: '#5c5b5b',
   gray300: '#c4c0c0',
+  gray250: '#c9c9c9',
   gray200: '#dbd9d9',
   gray100: '#f3f5f7',
 } as const;
