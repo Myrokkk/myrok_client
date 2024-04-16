@@ -9,6 +9,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { MemoryRouter } from 'react-router-dom';
 import { ToastProvider } from '../src/components/common/Toast/ToastContext';
 import { ROUTES } from '../src/constants/routes';
+import { ProjectProvider } from '../src/context/ProjectContext';
 
 initialize();
 
@@ -34,7 +35,9 @@ export const decorators = [
         <ThemeProvider theme={Theme}>
           <Global styles={GlobalReset} />
           <ToastProvider>
-            <Story />
+            <ProjectProvider>
+              <Story />
+            </ProjectProvider>
           </ToastProvider>
         </ThemeProvider>
       </QueryClientProvider>
