@@ -10,7 +10,6 @@ export const usePostJoinProject = () => {
 
   const { mutate } = useMutation({
     mutationFn: postJoinProject,
-    throwOnError: false,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['userProjectInfo'] });
     },

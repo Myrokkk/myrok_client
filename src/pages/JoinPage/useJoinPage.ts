@@ -61,6 +61,8 @@ export const useJoinPage = (inputRef: RefObject<HTMLInputElement>) => {
           navigate(ROUTES.DASH_BOARD);
         },
         onError: () => {
+          inputRef.current?.focus();
+
           setIsRequired(() => true);
           setIsClicked(() => false);
           setWarningText(() => '');

@@ -27,12 +27,11 @@ if (process.env.WORKER === 'on') {
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      retry: false,
       throwOnError: true,
+      retry: false,
     },
     mutations: {
       retry: false,
-      throwOnError: true,
     },
   },
 });
