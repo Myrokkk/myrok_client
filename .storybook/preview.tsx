@@ -36,9 +36,9 @@ export const decorators = [
         <ThemeProvider theme={Theme}>
           <Global styles={GlobalReset} />
           <ToastProvider>
-            <ProjectProvider>
-              <Story />
-            </ProjectProvider>
+            {/* <ProjectProvider> */}
+            <Story />
+            {/* </ProjectProvider> */}
           </ToastProvider>
         </ThemeProvider>
       </QueryClientProvider>
