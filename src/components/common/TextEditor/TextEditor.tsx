@@ -1,6 +1,6 @@
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import Editor from 'ckeditor5/build/ckeditor';
-
+import '~/components/common/TextEditor/TextEditor.css';
 interface TextEditorProps {
   handleTextDataChange: (text: string) => void;
 }
