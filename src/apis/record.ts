@@ -1,5 +1,5 @@
 import { axiosInstance } from '~/apis/axiosInstance';
-import type { Record, RecordDetail, RecordInfo } from '~/types/record';
+import type { Record, RecordDetail, RecordInfo, Summary } from '~/types/record';
 
 export const getRecordList = async () => {
   const { data } = await axiosInstance.get<RecordInfo[]>('/myrok/list');
@@ -20,7 +20,7 @@ export const getRecord = async (recordId: number) => {
 };
 
 export const getSummary = async (recordId: number) => {
-  const { data } = await axiosInstance.get<RecordDetail>(
+  const { data } = await axiosInstance.get<Summary>(
     `/myrok/record/summary?recordId=${recordId}`,
   );
 
