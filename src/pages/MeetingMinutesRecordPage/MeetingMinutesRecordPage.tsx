@@ -21,6 +21,7 @@ const MeetingMinutesRecordPage = () => {
     memberList,
     recordDate,
   } = useGetRecord(Number(recordId));
+
   const recordWriterName = memberList.find(
     (member) => member.memberId === recordWriterId,
   )?.name;
