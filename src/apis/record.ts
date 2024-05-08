@@ -18,3 +18,11 @@ export const getRecord = async (recordId: number) => {
 
   return data;
 };
+
+export const getSummary = async (recordId: number) => {
+  const { data } = await axiosInstance.get<RecordDetail>(
+    `/myrok/record/summary?recordId=${recordId}`,
+  );
+
+  return data;
+};
