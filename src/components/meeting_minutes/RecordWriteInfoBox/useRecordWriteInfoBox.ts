@@ -44,7 +44,6 @@ export const useRecordWriteInfoBox = () => {
     if (tags.delete(deleteTag)) {
       showToast('success', `'${deleteTag}' 태그를 삭제했습니다.`);
     }
-    tags.delete(deleteTag);
   };
 
   return {
