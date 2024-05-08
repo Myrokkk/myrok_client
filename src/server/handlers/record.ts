@@ -8,7 +8,7 @@ import {
 
 let recordList = [...recordListData];
 let record = [...recordData];
-let summary = [...summaryData];
+let summaryList = [...summaryData];
 let lastRecordId = recordListData[0].recordId;
 
 export const recordHandler = () => {
@@ -16,7 +16,21 @@ export const recordHandler = () => {
     rest.get('/myrok/list', getRecordList),
     rest.get('/myrok/records/:recordId', getRecord),
     rest.post('/myrok/records', postRecord),
+    rest.get('/myrok/record/summary', getSummary),
   ];
+};
+
+const getSummary: Parameters<typeof rest.get>[1] = async (req, res, ctx) => {
+  const recordId = req.url.searchParams.get('recordId');
+
+  const summary = summaryList.find(
+    (data) => data.summaryId === Number(recordId),
+  );
+
+  if (summary === undefined)
+    return res(ctx.status(200), ctx.json({ summaryId: recordId, summary: '' }));
+
+  return res(ctx.status(200), ctx.json({ ...summary }));
 };
 
 const getRecord: Parameters<typeof rest.get>[1] = async (req, res, ctx) => {
@@ -60,7 +74,7 @@ const postRecord: Parameters<typeof rest.post>[1] = async (req, res, ctx) => {
     },
     ...recordList,
   ];
-  summary.push({ summaryId: lastRecordId, summary: '' });
+  summaryList.push({ summaryId: lastRecordId, summary: '' });
 
   const member = memberList.map((memberId: number) => {
     return projectMemberNames.find((project) => project.memberId === memberId);
