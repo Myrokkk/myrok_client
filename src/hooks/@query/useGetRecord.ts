@@ -8,7 +8,16 @@ export const useGetRecord = (recordId: number) => {
     queryFn: () => getRecord(recordId),
   });
 
-  if (data === undefined) return {} as RecordDetail;
+  if (data === undefined)
+    return {
+      recordId: 0,
+      recordName: '',
+      recordDate: '1000-01-01',
+      recordWriterId: 0,
+      recordContent: '',
+      tagList: [],
+      memberList: [],
+    } as RecordDetail;
 
   return data;
 };
