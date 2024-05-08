@@ -5,7 +5,12 @@ import Text from '~/components/common/Text/Text';
 import * as S from '~/components/meeting_minutes/RecordWriteInfoBox/RecordWriteInfoBox.styles';
 import { useRecordWriteInfoBox } from '~/components/meeting_minutes/RecordWriteInfoBox/useRecordWriteInfoBox';
 
-const RecordWriteInfoBox = () => {
+export interface RecordWriteInfoBoxProps {
+  handleTagListChange: (tagList: string[]) => void;
+  handleRecordNameChange: (recordName: string) => void;
+}
+
+const RecordWriteInfoBox = (props: RecordWriteInfoBoxProps) => {
   const titleRef = useRef<HTMLInputElement>(null);
   const tagRef = useRef<HTMLInputElement>(null);
   const {
@@ -16,7 +21,7 @@ const RecordWriteInfoBox = () => {
     warnText,
 
     handler: { handleTitleChange, handleTagChange, handleTagDelete },
-  } = useRecordWriteInfoBox();
+  } = useRecordWriteInfoBox(props);
 
   useEffect(() => {
     titleRef.current?.focus();
@@ -69,6 +74,7 @@ const RecordWriteInfoBox = () => {
           {[...tags].map((newTag) => {
             return (
               <Tag.Delete
+                key={newTag}
                 content={newTag}
                 act="delete"
                 handleTagDelete={() => handleTagDelete(newTag)}

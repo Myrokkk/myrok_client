@@ -1,18 +1,21 @@
 import { type ChangeEventHandler, useState } from 'react';
 import { useToast } from '~/components/common/Toast/useToast';
+import { RecordWriteInfoBoxProps } from '~/components/meeting_minutes/RecordWriteInfoBox/RecordWriteInfoBox';
 
-export const useRecordWriteInfoBox = () => {
+export const useRecordWriteInfoBox = (props: RecordWriteInfoBoxProps) => {
   const [tags, setTags] = useState<Set<string>>(new Set());
   const [tag, setTag] = useState('');
   const [title, setTitle] = useState('');
   const [isWarn, setIsWarn] = useState(false);
   const [warnText, setWarnText] = useState('');
   const { showToast } = useToast();
+  const { handleTagListChange, handleRecordNameChange } = props;
 
   const handleTitleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const { value: newTitle } = e.target;
 
     setTitle(newTitle);
+    handleRecordNameChange(newTitle);
   };
 
   const handleTagChange: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -32,6 +35,7 @@ export const useRecordWriteInfoBox = () => {
       }
 
       setTags((prev) => new Set([...prev, tag]));
+      handleTagListChange([...tags, tag]);
       setTag('');
       setIsWarn(false);
       return;
@@ -43,6 +47,7 @@ export const useRecordWriteInfoBox = () => {
   const handleTagDelete = (deleteTag: string) => {
     if (tags.delete(deleteTag)) {
       showToast('success', `'${deleteTag}' 태그를 삭제했습니다.`);
+      handleTagListChange([...tags]);
     }
   };
 
