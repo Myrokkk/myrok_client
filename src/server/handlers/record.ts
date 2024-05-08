@@ -3,10 +3,12 @@ import { projectMemberNames } from '~/server/mocks/project';
 import {
   recordList as recordListData,
   record as recordData,
+  summary as summaryData,
 } from '~/server/mocks/record';
 
 let recordList = [...recordListData];
 let record = [...recordData];
+let summary = [...summaryData];
 let lastRecordId = recordListData[0].recordId;
 
 export const recordHandler = () => {
@@ -58,6 +60,7 @@ const postRecord: Parameters<typeof rest.post>[1] = async (req, res, ctx) => {
     },
     ...recordList,
   ];
+  summary.push({ summaryId: lastRecordId, summary: '' });
 
   const member = memberList.map((memberId: number) => {
     return projectMemberNames.find((project) => project.memberId === memberId);

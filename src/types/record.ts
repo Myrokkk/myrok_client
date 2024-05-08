@@ -24,6 +24,6 @@ export interface RecordDetail extends Omit<Record, 'projectId' | 'memberList'> {
 }
 
 export interface Summary {
-  id: number;
+  summaryId: number;
   summary: string;
 }
