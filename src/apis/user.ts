@@ -21,8 +21,7 @@ export const postTokenReissue = async () => {
 };
 
 export const getUserProjectInfo = async () => {
-  const { data } =
-    await axiosInstance.get<UserProjectInfo>('/myrok/me/project');
+  const { data } = await instance.get<UserProjectInfo>('/myrok/me/project');
 
   return data;
 };
