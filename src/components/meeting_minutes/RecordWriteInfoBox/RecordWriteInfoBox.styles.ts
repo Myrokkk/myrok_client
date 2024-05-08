@@ -6,7 +6,6 @@ export const recordWriteInfoBoxContainer = css`
   flex-direction: column;
   justify-content: space-between;
 
-  width: 100%;
   max-width: 560px;
   height: 200px;
   padding: 30px;
