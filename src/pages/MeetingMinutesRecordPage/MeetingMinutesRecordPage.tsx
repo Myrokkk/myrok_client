@@ -7,6 +7,8 @@ import { Theme } from '~/styles/Theme';
 import { generateDateToStringFormat } from '~/utils/generateDateToStringFormat';
 import * as S from '~/pages/MeetingMinutesRecordPage/MeetingMinutesRecordPage.styles';
 import SummaryBox from '~/components/meeting_minutes/SummaryBox/SummaryBox';
+import Button from '~/components/common/Button/Button';
+import { useGetUserInfo } from '~/hooks/@query/useGetUserInfo';
 
 const MeetingMinutesRecordPage = () => {
   const recordId = useParams().recordId;
@@ -22,6 +24,7 @@ const MeetingMinutesRecordPage = () => {
     memberList,
     recordDate,
   } = useGetRecord(Number(recordId));
+  const { memberId } = useGetUserInfo();
 
   const recordWriterName = memberList.find(
     (member) => member.memberId === recordWriterId,
@@ -98,6 +101,14 @@ const MeetingMinutesRecordPage = () => {
             })}
           </div>
         </div>
+        {recordWriterId === memberId && (
+          <div css={S.writerButton}>
+            <Button css={S.buttonStyling} variant="primary">
+              수정하기
+            </Button>
+            <Button css={S.deleteButtonStyling}>삭제하기</Button>
+          </div>
+        )}
       </div>
     </div>
   );
