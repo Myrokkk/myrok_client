@@ -48,7 +48,7 @@ export const getSummary = async (recordId: number) => {
 export const getDashBoardTags = async (projectId: number) => {
   const { data } = await axiosInstance.get<{
     tags: DashBoardTag[];
-    ectPercentage: number;
+    etcPercentage: number;
   }>(`/myrok/${projectId}/dashboard`);
 
   return data;
