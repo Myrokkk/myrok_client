@@ -1,12 +1,9 @@
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Pagination from '~/components/common/Pagination/Pagination';
 import Text from '~/components/common/Text/Text';
 import EmptyRecordPlaceholder from '~/components/meeting_minutes/EmptyRecordPlaceholder/EmptyRecordPlaceholder';
 import * as S from '~/components/meeting_minutes/RecordTable/RecordTable.styles';
-import RecordTableHeader from '~/components/meeting_minutes/RecordTableHeader/RecordTableHeader';
 import { TABLE_HEADER_VALUES } from '~/constants/project';
-import { useGetRecordList } from '~/hooks/@query/useGetRecordList';
 import type { RecordInfo } from '~/types/record';
 import { generateDateToStringFormat } from '~/utils/generateDateToStringFormat';
 

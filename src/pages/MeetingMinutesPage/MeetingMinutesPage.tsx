@@ -2,7 +2,6 @@ import RecordTable from '~/components/meeting_minutes/RecordTable/RecordTable';
 import { css } from '@emotion/react';
 import { useEffect, useState } from 'react';
 import type { RecordInfo } from '~/types/record';
-import { useNavigate } from 'react-router-dom';
 import { useGetRecordList } from '~/hooks/@query/useGetRecordList';
 import RecordTableHeader from '~/components/meeting_minutes/RecordTableHeader/RecordTableHeader';
 
@@ -15,7 +14,6 @@ const MeetingMinutesPage = () => {
   const [totalPage, setTotalPage] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortMethod, setSortMethod] = useState<'new' | 'old'>('new');
-  const navigate = useNavigate();
   const { recordInfoList, isFetched } = useGetRecordList();
 
   useEffect(() => {
