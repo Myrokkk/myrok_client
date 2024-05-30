@@ -10,29 +10,6 @@ export const container = css`
   max-height: 650px;
 `;
 
-export const menuHeader = css`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 100%;
-  height: 70px;
-  padding: 8px;
-`;
-
-export const sortMenuContainer = css`
-  display: flex;
-  align-self: flex-end;
-  gap: 10px;
-`;
-
-export const divider = css`
-  width: 1px;
-  height: 24px;
-
-  background-color: ${Theme.color.gray300};
-`;
-
 export const tableContainer = css`
   display: flex;
   flex-direction: column;
@@ -61,16 +38,6 @@ export const tableBody = css`
 
 export const table = css`
   width: 100%;
-`;
-
-export const recordTableTitle = css`
-  font-size: 28px;
-`;
-
-export const recordAddButton = css`
-  font-weight: 800;
-
-  border-radius: 14px;
 `;
 
 export const tableProperties = css`
