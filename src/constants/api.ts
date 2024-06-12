@@ -60,4 +60,4 @@ export const LOCAL_STORAGE = {
   REFRESH_TOKEN: 'myrok_refreshToken',
 } as const;
 
-export const AXIOS_BASE_URL = '' as const;
+export const AXIOS_BASE_URL = 'http://localhost:8080' as const;
