@@ -6,12 +6,8 @@ import {
   handleTokenError,
 } from '~/apis/interceptors';
 
-const { REACT_APP_BASE_URL: baseUrl } = process.env;
-
-const BASE_URL = baseUrl === undefined ? '' : baseUrl;
-
 export const axiosInstance = axios.create({
-  baseURL: BASE_URL,
+  baseURL: process.env.REACT_APP_BASE_URL,
   withCredentials: true,
 });
 
