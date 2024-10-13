@@ -2,7 +2,7 @@
   "name": "myrok-client",
   "version": "0.1.0",
   "description": "소프트웨어시스템개발 마이록",
-  "homepage": "https://myrokkk.github.io/myrok_client",
+  "homepage": "https://myrokkk.github.io/myrok_client/",
   "main": "index.js",
   "scripts": {
     "start": "cross-env WORKER=on webpack serve --open",
