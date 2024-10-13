@@ -26,7 +26,8 @@ jobs:
       - name: Setup environment variables
         run: |
           echo "REACT_APP_BASE_URL=${{ secrets.REACT_APP_BASE_URL }}" >> .env
-          echo "PUBLIC_URL=${{ secrets.PUBLIC_URL }}" >> .env
+          PUBLIC_URL=$(echo $GITHUB_REPOSITORY | sed -r 's/^.+\/(.+)$/\/\1\//')
+          echo PUBLIC_URL=$PUBLIC_URL > .env
 
       - name: Install dependencies
         run: npm ci
