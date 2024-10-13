@@ -66,7 +66,7 @@ const AppRouter = () => {
         ],
       },
     ],
-    { basename: `${process.env.PUBLIC_URL}/myrok_client` },
+    { basename: process.env.PUBLIC_URL },
   );
 
   return <RouterProvider router={router} />;
