@@ -1,9 +1,12 @@
 import axios from 'axios';
 import { handleAPIError } from '~/apis/interceptors';
-import { AXIOS_BASE_URL } from '~/constants/api';
+
+export const { REACT_APP_BASE_URL: baseUrl } = process.env;
+
+const BASE_URL = baseUrl === undefined ? '' : baseUrl;
 
 export const instance = axios.create({
-  baseURL: AXIOS_BASE_URL,
+  baseURL: BASE_URL,
   withCredentials: true,
 });
 
