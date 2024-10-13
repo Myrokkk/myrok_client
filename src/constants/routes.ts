@@ -1,6 +1,6 @@
 export const ROUTES = {
   ROOT: '/myrok_client/',
-  LOGIN: '/myrok_client/login',
+  LOGIN: '/login',
   START: '/myrok_client/start',
   JOIN: '/myrok_client/join',
   CREATE: '/myrok_client/create',
