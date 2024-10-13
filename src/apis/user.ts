@@ -4,7 +4,6 @@ import { LOCAL_STORAGE } from '~/constants/api';
 import type { UserInfo, UserProjectInfo } from '~/types/user';
 
 export const getGoogleLogin = async () => {
-  console.log(process.env.REACT_APP_BASE_URL);
   const { data } = await instance.get<{ loginUrl: string }>(
     '/myrok/auth/google',
   );

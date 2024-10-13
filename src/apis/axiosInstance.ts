@@ -7,7 +7,7 @@ import {
 } from '~/apis/interceptors';
 
 export const axiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL,
+  baseURL: 'https://b0990339c78d470de00d3dd32dd4db7f1.apppaas.app',
   withCredentials: true,
 });
 
