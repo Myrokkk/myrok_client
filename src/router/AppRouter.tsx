@@ -18,53 +18,56 @@ import ProjectHolder from '~/pages/ProjectHolder/ProjectHolder';
 import StartPage from '~/pages/StartPage/StartPage';
 
 const AppRouter = () => {
-  const router = createBrowserRouter([
-    {
-      path: ROUTES.ROOT,
-      element: <App />,
-      errorElement: <NotFoundPage />,
-      children: [
-        { path: '', element: <LandingPage /> },
-        { path: ROUTES.LOGIN, element: <LoginPage /> },
-        {
-          element: <ProtectRoute />,
-          children: [
-            {
-              element: <ProtectProjectRoute />,
-              children: [
-                { path: ROUTES.START, element: <StartPage /> },
-                { path: ROUTES.CREATE, element: <CreatePage /> },
-                { path: ROUTES.JOIN, element: <JoinPage /> },
-              ],
-            },
-            {
-              element: <PageTemplate />,
-              children: [
-                { path: ROUTES.PROJECT_HOLDER, element: <ProjectHolder /> },
-                { path: ROUTES.DASH_BOARD, element: <DashBoardPage /> },
-                {
-                  path: ROUTES.MEETING_MINUTES,
-                  element: <MeetingMinutesPage />,
-                },
-                {
-                  path: ROUTES.MEETING_MINUTES_WRITE,
-                  element: <MeetingMinutesWritePage />,
-                },
-                {
-                  path: ROUTES.MEETING_MINUTES_RECORD,
-                  element: <MeetingMinutesRecordPage />,
-                },
-                {
-                  path: ROUTES.MEETING_MINUTES_EDIT,
-                  element: <MeetingMinutesEditPage />,
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-  ]);
+  const router = createBrowserRouter(
+    [
+      {
+        path: ROUTES.ROOT,
+        element: <App />,
+        errorElement: <NotFoundPage />,
+        children: [
+          { path: '', element: <LandingPage /> },
+          { path: ROUTES.LOGIN, element: <LoginPage /> },
+          {
+            element: <ProtectRoute />,
+            children: [
+              {
+                element: <ProtectProjectRoute />,
+                children: [
+                  { path: ROUTES.START, element: <StartPage /> },
+                  { path: ROUTES.CREATE, element: <CreatePage /> },
+                  { path: ROUTES.JOIN, element: <JoinPage /> },
+                ],
+              },
+              {
+                element: <PageTemplate />,
+                children: [
+                  { path: ROUTES.PROJECT_HOLDER, element: <ProjectHolder /> },
+                  { path: ROUTES.DASH_BOARD, element: <DashBoardPage /> },
+                  {
+                    path: ROUTES.MEETING_MINUTES,
+                    element: <MeetingMinutesPage />,
+                  },
+                  {
+                    path: ROUTES.MEETING_MINUTES_WRITE,
+                    element: <MeetingMinutesWritePage />,
+                  },
+                  {
+                    path: ROUTES.MEETING_MINUTES_RECORD,
+                    element: <MeetingMinutesRecordPage />,
+                  },
+                  {
+                    path: ROUTES.MEETING_MINUTES_EDIT,
+                    element: <MeetingMinutesEditPage />,
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    { basename: process.env.PUBLIC_URL },
+  );
 
   return <RouterProvider router={router} />;
 };
