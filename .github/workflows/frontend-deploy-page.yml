@@ -35,8 +35,18 @@ jobs:
       - name: Build App
         run: npm run build
 
-      - name: Create 404.html for GitHub Pages fallback
-        run: cp dist/index.html dist/404.html
+      - name: Create 404.html with Storybook Exception
+        run: |
+          cp dist/index.html dist/404.html
+          echo "
+          <script>
+            if (location.pathname.startsWith('/storybook')) {
+              location.replace(location.href);
+            } else {
+              location.replace('/');
+            }
+          </script>
+          " >> dist/404.html
 
       - name: Upload frontend build file to github page
         uses: peaceiris/actions-gh-pages@v3

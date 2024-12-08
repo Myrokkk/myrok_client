@@ -59,6 +59,10 @@ const AppRouter = () => {
                     path: ROUTES.MEETING_MINUTES_EDIT,
                     element: <MeetingMinutesEditPage />,
                   },
+                  {
+                    path: '/storybook/*',
+                    element: null,
+                  },
                 ],
               },
             ],
