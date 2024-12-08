@@ -20,6 +20,12 @@ jobs:
           node-version: 18
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json'
+      
+       - name: Setup environment variables
+        run: |
+          echo "REACT_APP_BASE_URL=${{ secrets.REACT_APP_BASE_URL }}" >> .env
+          PUBLIC_URL=$(echo $GITHUB_REPOSITORY | sed -r 's/^.+\/(.+)$/\/\1\//')
+          echo PUBLIC_URL=$PUBLIC_URL >> .env
 
       - name: Install dependencies
         run: npm ci
@@ -32,9 +38,9 @@ jobs:
           cp dist/index.html dist/404.html
           echo '
           <script>
-            if (!location.pathname.startsWith("/storybook")) {
-              location.href = "/myrok_client/";
-            }
+            if (location.pathname.includes("/storybook")) {
+              location.href = "/myrok_client/storybook/";
+            } 
           </script>
           ' >> dist/404.html
 
