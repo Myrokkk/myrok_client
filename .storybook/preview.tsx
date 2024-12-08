@@ -23,6 +23,9 @@ const preview: Preview = {
       },
     },
     msw: handlers(),
+    router: {
+      basename: '/storybook',
+    },
   },
 };
 
