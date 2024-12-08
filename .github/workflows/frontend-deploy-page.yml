@@ -41,7 +41,7 @@ jobs:
           echo '
           <script>
             // Allow "/storybook" paths to be loaded as is
-            if (!location.pathname.startsWith("/storybook")) {
+            if (!location.pathname.startsWith("/myrok_client/storybook")) {
               // Redirect non-storybook paths to "/"
               location.href = "/myrok_client/";
             }
