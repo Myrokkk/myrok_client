@@ -33,7 +33,7 @@ jobs:
           echo '
           <script>
             if (!location.pathname.startsWith("/storybook")) {
-              location.href = "/myrok/";
+              location.href = "/myrok_client/";
             }
           </script>
           ' >> dist/404.html
