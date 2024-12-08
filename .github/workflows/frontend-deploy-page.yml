@@ -40,9 +40,7 @@ jobs:
           cp dist/index.html dist/404.html
           echo "
           <script>
-            if (location.pathname.startsWith('/storybook')) {
-              location.replace(location.href);
-            } else {
+             if (!location.pathname.startsWith('/storybook')) {
               location.replace('/');
             }
           </script>

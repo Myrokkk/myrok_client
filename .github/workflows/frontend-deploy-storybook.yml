@@ -31,6 +31,12 @@ jobs:
         run: |
           npm run build-storybook
 
+      - name: Update Storybook Base Path
+        run: |
+          echo "Updating Storybook base path for /storybook"
+          sed -i 's|href="/|href="/storybook/|g' storybook-static/index.html
+          sed -i 's|src="/|src="/storybook/|g' storybook-static/index.html
+
       - name: Upload frontend build file to github page
         uses: peaceiris/actions-gh-pages@v3
         with:
